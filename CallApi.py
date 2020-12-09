@@ -47,5 +47,8 @@ print(strBusTime)
 currentTime = time.time()
 timeLeft = busTime - currentTime
 print (timeLeft)
-normLeft = time.strftime('%M:%S', time.localtime(timeLeft))
-print(normLeft)
+if timeLeft <= 60:
+    normLeft = "0"
+else:    
+    normLeft = time.strftime('%M', time.localtime(timeLeft))
+print(normLeft + " Minutes Left")

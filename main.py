@@ -2,7 +2,8 @@
 # I somehow feel like this is not a create way of implementing this.
 #The main idea is to have a selfupdating display of both bus times.
 #Dont know what design to use so its hard for me to aim somewhere.
-
+#Get the program to repeat every 30 seconds. dont show seconds in time left.
+#Negative arrival time causes error in time formatting.
 
 # Get which way the bus goes.
 print('Choose which way the bus goes:')
