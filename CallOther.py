@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import datetime
 
 # Api address
 url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
@@ -42,3 +43,9 @@ busTime = stopDay + stopTime
 print(busTime)
 strBusTime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(busTime))
 print(strBusTime)
+# Minutes Left
+currentTime = time.time()
+timeLeft = busTime - currentTime
+print (timeLeft)
+normLeft = time.strftime('%M:%S', time.localtime(timeLeft))
+print(normLeft)
