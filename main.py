@@ -1,3 +1,4 @@
+import time
 
 # I somehow feel like this is not a create way of implementing this.
 #The main idea is to have a selfupdating display of both bus times.
@@ -6,6 +7,7 @@
 #Negative arrival time causes error in time formatting.
 
 # Get which way the bus goes.
+print('Current time: ' + time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 print('Choose which way the bus goes:')
 print ('1. Kontula\n2. Mellunmäki')
 choice = input()
