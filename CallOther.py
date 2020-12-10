@@ -40,13 +40,13 @@ print(busHeadSign)
 stopDay = int(stoptimes_wrap[0]['serviceDay'])
 stopTime= int(stoptimes_wrap[0]['scheduledArrival'])
 busTime = stopDay + stopTime
-print(busTime)
+#print(busTime)
 strBusTime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(busTime))
 print(strBusTime)
 # Minutes Left
 currentTime = time.time()
 timeLeft = busTime - currentTime
-print (timeLeft)
+#print (timeLeft)
 if timeLeft <= 60:
     normLeft = "0"
 else:    
