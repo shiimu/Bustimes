@@ -2,10 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
     <title>Bus Times</title>
+    
 </head>
-<body>
-   <h1>Welcome to the page</h1>
+    <img>
+   <h1> {{ timen }}</h1> 
+
+   <h1>
+   <table class="c">
+     <tr>
+       <th>Linja</th>
+       <th>Määränpää</th>
+       <th>Aika/min</th>
+     </tr>
+     <tr>
+       <td>{{ busK1 }}</td>
+       <td>{{ busR1 }}</td>
+       <td>{{ busT1 }}</td>
+     </tr>
+     <tr>
+       <td>{{ busK22 }}</td>
+       <td>{{ busR22 }}</td>
+       <td>{{ busT22 }}</td>
+     </tr>
+     <tr>
+       <td>{{ busK33 }}</td>
+       <td>{{ busR33 }}</td>
+       <td>{{ busT33 }}</td>
+     </tr>
+     <tr>
+       <td>{{ busK44 }}</td>
+       <td>{{ busR44 }}</td>
+       <td>{{ busT44 }}</td>
+     </tr>
+   </table>
+    </h1>
 </body>
 </html>

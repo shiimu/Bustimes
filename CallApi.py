@@ -7,7 +7,7 @@ import datetime
 url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
 # Calling from Api. Queryng only the wanted stuff.
 # HSL id 113 facing kontula, 114 for mellunmäki
-payload = {"query":"{\n  stop(id: \"HSL:1472114\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
+payload = {"query":"{\n  stop(id: \"HSL:1472113\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
 headers= {"Content-Type" : "application/json"}
 response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
 # Dumping the payload in json format
