@@ -3,19 +3,33 @@ body{
 }
 h1 {
     
-    border-bottom-style: solid;
-    border-bottom-color:  white;
+
     color: white;
     text-align: right;
     padding: 10px;
-
+    font-family: Helvetica;
+    font-size: 40px;
+    
 
  }
+h2 {
+    
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: Helvetica;
+    font-size: 20px;
+    border-bottom: solid;
+    border-color: white;
+    border-width: 5px;
+
+}
+
 img{
     content: url(logo.png);
     width: 25%;
     height: 25%;
-
+    
 
 }
 p {
@@ -23,26 +37,23 @@ p {
     font-size: 20px;
   }
 table {
-    border-collapse: collapse;
-    border: 1px solid white;
+    
     border-bottom-style: solid;
     border-bottom-color:  white;
     color: white;
     text-align: left;
     padding: 10px;
-    font-family: Helvetica;
-    font-size: 20px;
 } 
   
 th,td {
-    border: 1px solid white;
-    border-bottom-style: solid;
+    border-collapse: 1px dotted white;
+    border-bottom-style: dotted;
     border-bottom-color:  white;
     color: white;
     text-align: left;
     padding: 10px;
     font-family: Helvetica;
-    font-size: 20px;
+    font-size: 40px;
 }
 table.c {
     table-layout: auto;

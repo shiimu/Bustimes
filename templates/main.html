@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta http-equiv="refresh" content="15">                
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
     <title>Bus Times</title>
     
 </head>
-    <img>
-   <h1> {{ timen }}</h1> 
 
-   <h1>
+   <h1> {{ timen }}</h1> 
+   <img>
    <table class="c">
      <tr>
        <th>Linja</th>
        <th>Määränpää</th>
-       <th>Aika/min</th>
+       <th>Aika / min</th>
      </tr>
      <tr>
        <td>{{ busK1 }}</td>
@@ -37,6 +38,5 @@
        <td>{{ busT44 }}</td>
      </tr>
    </table>
-    </h1>
 </body>
 </html>

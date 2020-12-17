@@ -3,18 +3,35 @@ import json
 import time
 import datetime
 
-# Api address
-url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
-# Calling from Api. Queryng only the wanted stuff.
-# HSL id 113 facing kontula, 114 for mellunmäki
-payload = {"query":"{\n  stop(id: \"HSL:1472113\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
-headers= {"Content-Type" : "application/json"}
-response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
-# Dumping the payload in json format
-dumped_data = response.json()
+global stopID
+stopID = 'HSL:1472113'
+called = False
+
+def callApi(stopID):
+    # Api address
+    url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
+    # Calling from Api. Queryng only the wanted stuff.
+    # HSL id 113 facing kontula, 114 for mellunmäki
+    payload = {"query":"{\n  stop(id: \"" + stopID + "\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
+    headers= {"Content-Type" : "application/json"}
+    global response
+    response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
+    # Dumping the payload in json format
+    global dumped_data
+    dumped_data = response.json()
+
+while called != True:
+    callApi(stopID)
+    print(callApi(stopID))
+    called = True    
+    time.sleep(15)
+    called = False
+    print("bump")
+
 
 """ print(response.text)
-print(response.status_code) """
+print(response.status_code) 
+
 
 # Getting into the right places
 # Fix naming conventions into singular
@@ -48,7 +65,10 @@ currentTime = time.time()
 timeLeft = busTime - currentTime
 #print (timeLeft)
 if timeLeft <= 60:
-    normLeft = "~0"
+    normLeft = "0"
 else:    
     normLeft = time.strftime('%M', time.localtime(timeLeft))
 print(normLeft + " Minutes Left")
+
+
+"""
