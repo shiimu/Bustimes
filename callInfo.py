@@ -7,21 +7,19 @@ global stopID
 stopID = 'HSL:1472113'
 initiated = True
 
+# Api address
+url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
+# Calling from Api. Queryng only the wanted stuff.
+# HSL id 113 facing kontula, 114 for mellunmäki
+payload = {"query":"{\n  stop(id: \"" + stopID + "\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
+headers= {"Content-Type" : "application/json"}
+global response
+response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
+# Dumping the payload in json format
+dumped_data = response.json()
 
-def callApi():
-    # Api address
-    url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
-    # Calling from Api. Queryng only the wanted stuff.
-    # HSL id 113 facing kontula, 114 for mellunmäki
-    payload = {"query":"{\n  stop(id: \"" + stopID + "\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
-    headers= {"Content-Type" : "application/json"}
-    global response
-    response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
-    # Dumping the payload in json format
-    global dumped_data
-    dumped_data = response.json()
-
-
+'''
+# Needs to be added to somewhere else
 def checkRepeat():
     called = False
     while called != True:
@@ -36,6 +34,9 @@ def checkRepeat():
 
 while initiated:
     checkRepeat()
+
+'''
+
 
 """
 print(response.text)
