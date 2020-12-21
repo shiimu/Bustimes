@@ -5,9 +5,10 @@ import datetime
 
 global stopID
 stopID = 'HSL:1472113'
-called = False
+initiated = True
 
-def callApi(stopID):
+
+def callApi():
     # Api address
     url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
     # Calling from Api. Queryng only the wanted stuff.
@@ -20,16 +21,24 @@ def callApi(stopID):
     global dumped_data
     dumped_data = response.json()
 
-while called != True:
-    callApi(stopID)
-    print(callApi(stopID))
-    called = True    
-    time.sleep(15)
+
+def checkRepeat():
     called = False
-    print("bump")
+    while called != True:
+        callApi()
+        print(dumped_data)
+
+        called = True    
+        time.sleep(15)
+        called = False
+        print("bump")
 
 
-""" print(response.text)
+while initiated:
+    checkRepeat()
+
+"""
+print(response.text)
 print(response.status_code) 
 
 
