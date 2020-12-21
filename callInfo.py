@@ -5,7 +5,6 @@ import datetime
 
 global stop_id
 stop_id = 'HSL:1472113'
-#initiated = True
 # Use HSL:(int) code here to query the right stop
 def queryApi(stop_id):
     # Api address
@@ -18,7 +17,6 @@ def queryApi(stop_id):
     # Dumping the payload in json format
     global dumped_data
     dumped_data = response.json()
-    print(dumped_data)
     return dumped_data
 
 '''
@@ -26,14 +24,13 @@ def queryApi(stop_id):
 def checkRepeat():
     called = False
     while called != True:
-        callApi()
+        queryApi('HSL:1472113')
         print(dumped_data)
 
         called = True    
         time.sleep(15)
         called = False
         print("bump")
-
 
 while initiated:
     checkRepeat()

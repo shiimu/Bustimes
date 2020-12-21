@@ -1,28 +1,16 @@
 body{
     background-color:#007fc6;
 }
-h1 {
-    
-
-    color: white;
-    text-align: right;
+p1 {
+    color: #007fc6;
+    background-color: white;
     padding: 10px;
     font-family: Helvetica;
-    font-size: 40px;
-    
-
- }
-h2 {
-    
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-family: Helvetica;
-    font-size: 20px;
-    border-bottom: solid;
-    border-color: white;
-    border-width: 5px;
-
+    font-size: 90px;
+    font-weight: bolder;  
+    float: right;
+    position: sticky;
+    border-radius: 25px;
 }
 
 img{
@@ -32,10 +20,6 @@ img{
     
 
 }
-p {
-    font-family: Helvetica;
-    font-size: 20px;
-  }
 table {
     
     border-bottom-style: solid;

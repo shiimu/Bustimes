@@ -28,9 +28,12 @@ def busTimeL(number):
     bus_time = stop_day + stop_time
     current_time = time.time()
     time_left = bus_time - current_time
-    
+    # throws an error if time_left is negative
     if time_left <= 60:
-        norm_left = "~0"
+        if time_left >= 1:
+            norm_left = "~0"
+    elif time_left < 0:
+        busTimeL(0)
     else:    
         norm_left = time.strftime('%M', time.localtime(time_left))
     return norm_left
