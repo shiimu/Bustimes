@@ -14,10 +14,14 @@ short_name_wrap = route_wrap['shortName']
 stopDay = int(stop_times_wrap[0]['serviceDay'])
 stopTime= int(stop_times_wrap[0]['scheduledArrival'])
 busTime = stopDay + stopTime
-
-def bus(number):
-    bus_num = stop_times_wrap[number]['trip']['route']['shortName']
+# At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
+def busName(number):
+    global bus_name
     bus_name = stop_times_wrap[number]['headsign']
+    return bus_name
+def busTimeL(number):
+    global norm_left
+
     stop_day = int(stop_times_wrap[number]['serviceDay'])
     stop_time= int(stop_times_wrap[number]['scheduledArrival'])
     
@@ -29,7 +33,15 @@ def bus(number):
         norm_left = "~0"
     else:    
         norm_left = time.strftime('%M', time.localtime(time_left))
+    return norm_left
+def busNumber(number):
+    global bus_num
 
-    print(bus_num, bus_name, norm_left)
+    bus_num = stop_times_wrap[number]['trip']['route']['shortName']
 
-print(bus(0))
+    return bus_num
+    
+
+
+
+#print(bus(0))

@@ -3,20 +3,23 @@ import json
 import time
 import datetime
 
-global stopID
-stopID = 'HSL:1472113'
-initiated = True
-
-# Api address
-url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
-# Calling from Api. Queryng only the wanted stuff.
-# HSL id 113 facing kontula, 114 for mellunmäki
-payload = {"query":"{\n  stop(id: \"" + stopID + "\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
-headers= {"Content-Type" : "application/json"}
-global response
-response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
-# Dumping the payload in json format
-dumped_data = response.json()
+global stop_id
+stop_id = 'HSL:1472113'
+#initiated = True
+# Use HSL:(int) code here to query the right stop
+def queryApi(stop_id):
+    # Api address
+    url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
+    # Calling from Api. Queryng only the wanted stuff.
+    payload = {"query":"{\n  stop(id: \"" + stop_id + "\") {  name   stoptimesWithoutPatterns{ scheduledArrival   scheduledDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
+    headers= {"Content-Type" : "application/json"}
+    global response
+    response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
+    # Dumping the payload in json format
+    global dumped_data
+    dumped_data = response.json()
+    print(dumped_data)
+    return dumped_data
 
 '''
 # Needs to be added to somewhere else
