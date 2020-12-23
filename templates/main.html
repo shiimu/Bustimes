@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="refresh" content="20">                
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
     <title>Bus Times</title>
-    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('#btnclick').click(function() {
+        $('#testdiv').load();
+        });
+          })
+    </script>
 </head>
      <img>
-   <p1> {{ timen }}</p1> 
-
+   <p1> {{ timen }}</p1>
+   <body>
    <table class="c">
      <tr>
        <th>Linja</th>
@@ -19,8 +25,6 @@
      </tr>
      <tr>
        <td>{{ busK1 }}</td>
-       <td>{{ busR1 }}</td>
-       <td>{{ busT1 }}</td>
      </tr>
      <tr>
        <td>{{ busK2 }}</td>

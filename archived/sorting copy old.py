@@ -1,4 +1,4 @@
-from callInfo import dumped_data
+from webApp import dumped_data
 import time
 
 data_wrap = dumped_data['data']
@@ -14,22 +14,12 @@ short_name_wrap = route_wrap['shortName']
 stopDay = int(stop_times_wrap[0]['serviceDay'])
 stopTime= int(stop_times_wrap[0]['realtimeArrival'])
 busTime = stopDay + stopTime
-
-
-
-def busses(i):
-    bus_Name = stop_times_wrap[i]['headsign']
-    bus_Time_L = int(stop_times_wrap[i]['serviceDay']) + int(stop_times_wrap[i]['realtimeArrival']) - time.time()
-    bus_Number = stop_times_wrap[i]['trip']['route']['shortName']
-
-    return bus_Name, bus_Time_L,bus_Number
-
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
-def bus_sName(number):
+def busName(number):
     global bus_name
     bus_name = stop_times_wrap[number]['headsign']
     return bus_name
-def bus_Time_L(number):
+def busTimeL(number):
     global norm_left
 
     stop_day = int(stop_times_wrap[number]['serviceDay'])
@@ -44,7 +34,7 @@ def bus_Time_L(number):
     else:    
         norm_left = time.strftime('%M', time.localtime(time_left)) 
         return norm_left
-def bus_Number(number):
+def busNumber(number):
     global bus_num
 
     bus_num = stop_times_wrap[number]['trip']['route']['shortName']
