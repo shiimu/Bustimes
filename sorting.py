@@ -1,4 +1,4 @@
-from callInfo import dumped_data
+from callInfo import queryApi, dumped_data
 import time
 
 data_wrap = dumped_data['data']
@@ -10,10 +10,8 @@ stop_name = stop_wrap['name']
 trip_wrap = stop_times_wrap[0]['trip']
 route_wrap = trip_wrap['route']
 short_name_wrap = route_wrap['shortName']
-# Getting the arrival time
-stopDay = int(stop_times_wrap[0]['serviceDay'])
-stopTime= int(stop_times_wrap[0]['realtimeArrival'])
-busTime = stopDay + stopTime
+
+
 
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
 def bus_Name(number):
@@ -22,7 +20,7 @@ def bus_Name(number):
     return bus_name
 def bus_Time_L(number):
     global norm_left
-
+    # Getting the departure time
     stop_day = int(stop_times_wrap[number]['serviceDay'])
     stop_time= int(stop_times_wrap[number]['realtimeArrival'])
     
@@ -30,10 +28,9 @@ def bus_Time_L(number):
     current_time = time.time()
     time_left = bus_time - current_time
     # throws an error if time_left is negative
-    if time_left <= 0:
-        norm_left = 0
-        dumped_data.remove()
-        return dumped_data, norm_left, time_left
+    if time_left < 0:
+        norm_left = '00'
+        return norm_left
     else:    
         norm_left = time.strftime('%M', time.localtime(time_left)) 
         return norm_left
