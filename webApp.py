@@ -6,13 +6,13 @@ app = Flask(__name__)
 
 global stop_id
 stop_id = 'HSL:1472113'
-queryApi('HSL:1020113')
+queryApi('HSL:1472113')
 @app.route("/")
 def bustimes():
     from sorting import busses
 
     timeNow = time.strftime('%H:%M', time.localtime(time.time()))    
-    return render_template('main.html', timen = timeNow, busK1 = busses[0:5].update), queryApi(stop_id)
+    return render_template('main.html', timen = timeNow, busK1 = busses(0)), queryApi(stop_id)
 
 if __name__ == "__main__":
-    app.run( debug = True )
+    app.run(host = '192.168.1.125', port = '5000' , debug = True )
