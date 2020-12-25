@@ -15,17 +15,8 @@ stopDay = int(stop_times_wrap[0]['serviceDay'])
 stopTime= int(stop_times_wrap[0]['realtimeArrival'])
 busTime = stopDay + stopTime
 
-
-
-def busses(i):
-    bus_Name = stop_times_wrap[i]['headsign']
-    bus_Time_L = int(stop_times_wrap[i]['serviceDay']) + int(stop_times_wrap[i]['realtimeArrival']) - time.time()
-    bus_Number = stop_times_wrap[i]['trip']['route']['shortName']
-
-    return bus_Name, bus_Time_L,bus_Number
-
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
-def bus_sName(number):
+def bus_Name(number):
     global bus_name
     bus_name = stop_times_wrap[number]['headsign']
     return bus_name
@@ -39,8 +30,10 @@ def bus_Time_L(number):
     current_time = time.time()
     time_left = bus_time - current_time
     # throws an error if time_left is negative
-    if time_left <= 60:
-        norm_left = "~0"
+    if time_left <= 0:
+        norm_left = 0
+        dumped_data.remove()
+        return dumped_data, norm_left, time_left
     else:    
         norm_left = time.strftime('%M', time.localtime(time_left)) 
         return norm_left
