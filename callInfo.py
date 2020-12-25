@@ -9,7 +9,7 @@ def queryApi(stop_id):
     # Api address
     url = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
     # Calling from Api. Queryng only the wanted stuff.
-    payload = {"query":"{\n  stop(id: \"" + stop_id + "\") {  name   stoptimesWithoutPatterns{ realtimeArrival   realtimeDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
+    payload = {"query":"{\n  stop(id: \"" + stop_id + "\") {  name   stoptimesWithoutPatterns{ realtimeDeparture    serviceDay   headsign trip{route{ shortName}}}}}"}
     headers= {"Content-Type" : "application/json"}
     global response
     response = requests.request("POST", url, headers=headers, data = json.dumps(payload))

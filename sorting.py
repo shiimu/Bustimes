@@ -1,23 +1,16 @@
 from callInfo import dumped_data
 import time
 
-data_wrap = dumped_data['data']
-stop_wrap = data_wrap['stop']
-stop_times_wrap = stop_wrap['stoptimesWithoutPatterns']
-stop_name = stop_wrap['name']
+busses = dumped_data['data']['stop']['stoptimesWithoutPatterns']
+print(busses[0:5])
+busses.update()
+#bus_name = busses.index('shortName')
 
-# Getting the bus sign.
-trip_wrap = stop_times_wrap[0]['trip']
-route_wrap = trip_wrap['route']
-short_name_wrap = route_wrap['shortName']
-# Getting the arrival time
-stopDay = int(stop_times_wrap[0]['serviceDay'])
-stopTime= int(stop_times_wrap[0]['realtimeArrival'])
-busTime = stopDay + stopTime
+'''
+print(stop_names[0])
 
-
-
-def busses(i):
+def busses():
+    i = 0
     bus_Name = stop_times_wrap[i]['headsign']
     bus_Time_L = int(stop_times_wrap[i]['serviceDay']) + int(stop_times_wrap[i]['realtimeArrival']) - time.time()
     bus_Number = stop_times_wrap[i]['trip']['route']['shortName']
@@ -44,14 +37,14 @@ def bus_Time_L(number):
     else:    
         norm_left = time.strftime('%M', time.localtime(time_left)) 
         return norm_left
-def bus_Number(number):
+def bus_Number():
     global bus_num
 
-    bus_num = stop_times_wrap[number]['trip']['route']['shortName']
+    bus_num = stop_times_wrap['trip']['route']['shortName']
 
     return bus_num
     
 
 
-
 #print(bus(0))
+'''
