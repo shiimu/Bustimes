@@ -7,6 +7,7 @@ print(data_wrap)
 def refresh_data():
     global data_wrap
     global stop_times_wrap
+    global dumped_data
     data_wrap.clear()
     print(data_wrap)
     with open('datadump.json') as f:
@@ -41,7 +42,8 @@ def bus_Time_Left(number):
         return norm_left
     except:
         print('negative')
-        return time_left
+        norm_left = '00'
+        return norm_left
          
 def bus_Number (number) :
     global bus_number
