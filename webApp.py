@@ -17,9 +17,10 @@ def bustimes():
     from sorting_4 import data_wrap_4, refresh_data_4, bus_Number_4, bus_Name_4, bus_Time_Left_4
     refresh_data()
     refresh_data_2()
-    bustimes2()
     refresh_data_3()
     refresh_data_4()
+    bustimes2()
+
     #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
     timeNow = time.strftime('%H:%M', time.localtime(time.time()))    
     return render_template('main.html', timen = timeNow, busK1 = bus_Number(0), busR1 = bus_Name(0), busT1 = bus_Time_Left(0),
@@ -41,11 +42,11 @@ def bustimes():
                                                          busK17 = bus_Number_4(1), busR17 = bus_Name_4(1), busT17 = bus_Time_Left_4(1),
                                                          busK18 = bus_Number_4(2), busR18 = bus_Name_4(2), busT18 = bus_Time_Left_4(2),
                                                          busK19 = bus_Number_4(3), busR19 = bus_Name_4(3), busT19 = bus_Time_Left_4(3),
-                                                         busK20 = bus_Number_4(4), busR20 = bus_Name_4(4), busT20 = bus_Time_Left_4(4)), queryApi(stop_id),queryApi_2(stop_id_2)
+                                                         busK20 = bus_Number_4(4), busR20 = bus_Name_4(4), busT20 = bus_Time_Left_4(4))
                                                          
 def bustimes2():
     #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
-    return queryApi_3(stop_id_3), queryApi_4(stop_id_4)   
+    return queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
 if __name__ == "__main__":
     app.run( debug = True )
 #stop_id = 'HSL:1472113'
