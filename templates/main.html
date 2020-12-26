@@ -5,18 +5,26 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
     <title>Bus Times</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-    <script type="text/javascript">
-      $(function () {
-        $('#btnclick').click(function() {
-        $('#testdiv').load();
-        });
-          })
-    </script>
+    <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 10px;
+    }
+    
+    .grid-item {
+      padding: 20px;
+      font-size: 30px;
+      text-align: center;
+    }
+    </style>
 </head>
      <img>
    <p1> {{ timen }}</p1>
    <body>
+    <div class="grid-container">
+      <div class="grid-item">
+
    <table class="c">
      <tr>
        <th>Linja</th>
@@ -48,6 +56,113 @@
       <td>{{ busR5 }}</td>
       <td>{{ busT5 }}</td>
     </tr>
+  </table>
+    </div>
+    <div class="grid-item">
+    <table class="c">
+    <tr>
+      <th>Linja</th>
+      <th>Määränpää</th>
+      <th>Aika / min</th>
+    </tr>
+    <tr>
+      <td>{{ busK6 }}</td>
+      <td>{{ busR6 }}</td>
+      <td>{{ busT6 }}</td>
+    </tr>
+    <tr>
+      <td>{{ busK7 }}</td>
+      <td>{{ busR7 }}</td>
+      <td>{{ busT7 }}</td>
+    </tr>
+    <tr>
+      <td>{{ busK8 }}</td>
+      <td>{{ busR8 }}</td>
+      <td>{{ busT8 }}</td>
+    </tr>
+    <tr>
+      <td>{{ busK9 }}</td>
+      <td>{{ busR9 }}</td>
+      <td>{{ busT9 }}</td>
+    </tr>
+    <tr>
+     <td>{{ busK10 }}</td>
+     <td>{{ busR10 }}</td>
+     <td>{{ busT10 }}</td>
+   </tr>
+    </table>
+  </div>
+  <div class="grid-item">
+
+   <table class="c">
+   <tr>
+    <th>Linja</th>
+    <th>Määränpää</th>
+    <th>Aika / min</th>
+  </tr>
+  <tr>
+    <td>{{ busK11 }}</td>
+    <td>{{ busR11 }}</td>
+    <td>{{ busT11 }}</td>
+  </tr>
+  <tr>
+    <td>{{ busK12 }}</td>
+    <td>{{ busR12 }}</td>
+    <td>{{ busT12 }}</td>
+  </tr>
+  <tr>
+    <td>{{ busK13 }}</td>
+    <td>{{ busR13 }}</td>
+    <td>{{ busT13 }}</td>
+  </tr>
+  <tr>
+    <td>{{ busK14 }}</td>
+    <td>{{ busR14 }}</td>
+    <td>{{ busT14 }}</td>
+  </tr>
+  <tr>
+   <td>{{ busK15 }}</td>
+   <td>{{ busR15 }}</td>
+   <td>{{ busT15 }}</td>
+ </tr>
    </table>
+  </div>
+
+   <div class="grid-item">
+
+ <table class="c">
+ <tr>
+  <th>Linja</th>
+  <th>Määränpää</th>
+  <th>Aika / min</th>
+</tr>
+<tr>
+  <td>{{ busK16 }}</td>
+  <td>{{ busR16 }}</td>
+  <td>{{ busT16 }}</td>
+</tr>
+<tr>
+  <td>{{ busK17 }}</td>
+  <td>{{ busR17 }}</td>
+  <td>{{ busT17 }}</td>
+</tr>
+<tr>
+  <td>{{ busK18 }}</td>
+  <td>{{ busR18 }}</td>
+  <td>{{ busT18 }}</td>
+</tr>
+<tr>
+  <td>{{ busK19 }}</td>
+  <td>{{ busR19 }}</td>
+  <td>{{ busT19 }}</td>
+</tr>
+<tr>
+ <td>{{ busK20 }}</td>
+ <td>{{ busR20 }}</td>
+ <td>{{ busT20 }}</td>
+</tr>
+ </table>
+</div>
+
 </body>
 </html>

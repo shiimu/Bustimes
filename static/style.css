@@ -15,19 +15,17 @@ p1 {
 
 img{
     content: url(logo.png);
-    width: 25%;
-    height: 25%;
+    width: 20%;
+    height: 20%;
     
 
 }
 table {
-    
-    border-bottom-style: solid;
-    border-bottom-color:  white;
+    float: left;
     color: white;
     text-align: left;
     padding: 10px;
-} 
+}  
   
 th,td {
     border-collapse: 1px dotted white;
@@ -37,11 +35,13 @@ th,td {
     text-align: left;
     padding: 10px;
     font-family: Helvetica;
-    font-size: 40px;
+    font-size: 20px;
 }
 table.c {
     table-layout: auto;
     width: 100%;  
-  }
+}
+
+
 
   

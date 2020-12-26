@@ -1,27 +1,27 @@
 import time, json
 
-data_wrap = []
+data_wrap_3 = []
 
-def refresh_data():
-    global data_wrap
+def refresh_data_3():
+    global data_wrap_3
     global stop_times_wrap
     global dumped_data
-    data_wrap.clear()
-    with open('datadump.json') as f:
+    data_wrap_3.clear()
+    with open('datadump_3.json') as f:
         dumped_data = json.load(f)
-        data_wrap = dumped_data['data']
-        stop_wrap = data_wrap['stop']
+        data_wrap_3 = dumped_data['data']
+        stop_wrap = data_wrap_3['stop']
         stop_times_wrap = stop_wrap['stoptimesWithoutPatterns']
         # Getting the bus sign.
-        return data_wrap
+        return data_wrap_3
 
 
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
-def bus_Name(number):
+def bus_Name_3(number):
     global bus_name
     bus_name = stop_times_wrap[number]['headsign']
     return bus_name
-def bus_Time_Left(number):
+def bus_Time_Left_3(number):
     global norm_left
     # Getting the departure time
     stop_day = int(stop_times_wrap[number]['serviceDay'])
@@ -39,7 +39,7 @@ def bus_Time_Left(number):
         norm_left = '00'
         return norm_left
          
-def bus_Number (number) :
+def bus_Number_3(number) :
     global bus_number
     bus_number = stop_times_wrap[number]['trip']['route']['shortName']
     return bus_number
