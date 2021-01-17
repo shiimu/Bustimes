@@ -49,7 +49,7 @@ def bustimes2():
     return queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
 
 if __name__ == "__main__":
-    app.run( host = '192.168.1.125', debug = True )
+    app.run( debug = True )
 #stop_id = 'HSL:1472113'
 #stop_id_2 = 'HSL:1472128'
 #stop_id_3 = 'HSL:1472114'
