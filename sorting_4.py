@@ -7,14 +7,16 @@ def refresh_data_4():
     global stop_times_wrap
     global dumped_data
     data_wrap_4.clear()
-    with open('datadump_4.json') as f:
-        dumped_data = json.load(f)
-        data_wrap_4 = dumped_data['data']
-        stop_wrap = data_wrap_4['stop']
-        stop_times_wrap = stop_wrap['stoptimesWithoutPatterns']
-        # Getting the bus sign.
-        return data_wrap_4
-
+    try:
+        with open('datadump_4.json') as f:
+            dumped_data = json.load(f)
+            data_wrap_4 = dumped_data['data']
+            stop_wrap = data_wrap_4['stop']
+            stop_times_wrap = stop_wrap['stoptimesWithoutPatterns']
+            # Getting the bus sign.
+            return data_wrap_4
+    except:
+        return dumped_data
 
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
 def bus_Name_4(number):
