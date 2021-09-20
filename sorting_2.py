@@ -32,13 +32,14 @@ def bus_Time_Left_2(number):
     time_left = bus_time - int(current_time)
     # throws an error if time_left is negative
     # print(time_left)
-    try:
-        norm_left = time.strftime('%M', time.localtime(time_left)) 
+    norm_left = time.strftime('%M', time.localtime(time_left))
+    if time_left > 3600:
+        norm_left = time.strftime('%H:%M', time.localtime(bus_time)) 
         return norm_left
-    except:
+    elif time_left < 0:
         norm_left = '00'
         return norm_left
-         
+    return norm_left
 def bus_Number_2(number) :
     global bus_number
     bus_number = stop_times_wrap[number]['trip']['route']['shortName']

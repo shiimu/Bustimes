@@ -4,27 +4,36 @@ body{
 p1 {
     color: #007fc6;
     background-color: white;
-    padding: 10px;
+    padding: 1px;
     font-family: Helvetica;
     font-size: 90px;
     font-weight: bolder;  
     float: right;
-    position: sticky;
+    margin-top: 70px;
+    border-radius: 25px;
+}
+p2 {
+    color: #007fc6;
+    background-color: white;
+    padding: 1px;
+    font-family: Helvetica;
+    font-size: 90px;
+    font-weight: bolder;  
+    float: none;
+    margin-top: 70px;
     border-radius: 25px;
 }
 
 img{
-    content: url(logo.png);
-    width: 20%;
-    height: 20%;
-    
-
+    content: url(../static/logo.png);
+    width: 40%;
+    height: 40%;
 }
 table {
     float: left;
     color: white;
     text-align: left;
-    padding: 10px;
+    padding: 1px;
 }  
   
 th,td {
@@ -33,13 +42,13 @@ th,td {
     border-bottom-color:  white;
     color: white;
     text-align: left;
-    padding: 10px;
+    padding: 3px;
     font-family: Helvetica;
-    font-size: 20px;
+    font-size: 30px;
 }
 table.c {
     table-layout: auto;
-    width: 100%;  
+    width: auto;  
 }
 
 

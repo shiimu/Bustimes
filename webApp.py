@@ -1,13 +1,15 @@
 from flask import Flask, render_template, json, jsonify
 import time
 import requests
+from requests.models import Response
 from callInfo import queryApi, queryApi_2, queryApi_3, queryApi_4
-
+import weatherQuery
 stop_id = 'HSL:1472113'
 stop_id_2 = 'HSL:1472128'
 stop_id_3 = 'HSL:1472114'
 stop_id_4 = 'HSL:1472148'
 app = Flask(__name__)
+queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
 
 @app.route("/")
 def bustimes():
@@ -20,10 +22,10 @@ def bustimes():
     refresh_data_3()
     refresh_data_4()
     bustimes2()
-
     #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
-    timeNow = time.strftime('%H:%M', time.localtime(time.time()))    
-    return render_template('main.html', timen = timeNow, busK1 = bus_Number(0), busR1 = bus_Name(0), busT1 = bus_Time_Left(0),
+    timeNow = time.strftime('%H:%M', time.localtime(time.time()))
+    weatherNow = weatherQuery.queryWeatherApi() 
+    return render_template('main.html', weathern = weatherNow, timen = timeNow, busK1 = bus_Number(0), busR1 = bus_Name(0), busT1 = bus_Time_Left(0),
                                                          busK2 = bus_Number(1), busR2 = bus_Name(1), busT2 = bus_Time_Left(1),
                                                          busK3 = bus_Number(2), busR3 = bus_Name(2), busT3 = bus_Time_Left(2),
                                                          busK4 = bus_Number(3), busR4 = bus_Name(3), busT4 = bus_Time_Left(3),
@@ -47,9 +49,11 @@ def bustimes():
 def bustimes2():
     #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
     return queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
+
 if __name__ == "__main__":
-    app.run( debug = True )
+    app.run( host = '192.168.1.125', debug = True )
 #stop_id = 'HSL:1472113'
 #stop_id_2 = 'HSL:1472128'
 #stop_id_3 = 'HSL:1472114'
 #stop_id_4 = 'HSL:1472148'
+# host = '192.168.1.125',
