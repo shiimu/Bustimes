@@ -1,7 +1,6 @@
 import requests
 import json
-import time
-import datetime
+
 
 # Use HSL:(int) code here to query the right stop
 def queryApi(stop_id):

@@ -16,7 +16,7 @@ def refresh_data():
             # Getting the bus sign.
             return data_wrap
     except:
-        return dumped_data
+        pass
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
 def bus_Name(number):
     global bus_name
