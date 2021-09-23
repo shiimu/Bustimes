@@ -3,7 +3,7 @@ import json
 
 def queryWeatherApi():
     # Api address
-    url = "https://api.openweathermap.org/data/2.5/weather?lat=60.23787364561019&lon=25.10560957759351&appid=26f3da9c1cf5317afb407dcd0498a2b9"
+    url = "https://api.openweathermap.org/data/2.5/weather?lat=60.23787364561019&lon=25.10560957759351&appid=APIKEY"
     # Calling from Api. Queryng only the wanted stuff.
     payload = {"query":'{\n  "weather": {'}
     headers= {"Content-Type" : "application/json"}
