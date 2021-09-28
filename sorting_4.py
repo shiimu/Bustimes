@@ -16,7 +16,7 @@ def refresh_data_4():
             # Getting the bus sign.
             return data_wrap_4
     except:
-        return dumped_data
+        print("Error! datadump.json is empty!")
 
 # At first I had all 3 together. But had trouble singleing out any one var. so decided to split to 3 functions.
 def bus_Name_4(number):

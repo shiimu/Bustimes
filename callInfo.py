@@ -13,7 +13,7 @@ def queryApi(stop_id):
     # Dumping the response in json format
     global dumped_data
     dumped_data = response.json()
-    print(dumped_data)
+    #print(dumped_data)
     with open('datadump.json', 'w')as json_file:
         json.dump(dumped_data, json_file)
     return

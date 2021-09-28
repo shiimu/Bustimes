@@ -19,7 +19,7 @@ p2 {
     font-family: Helvetica;
     font-size: 90px;
     font-weight: bolder;  
-    float: none;
+    float: center;
     margin-top: 70px;
     border-radius: 25px;
 }

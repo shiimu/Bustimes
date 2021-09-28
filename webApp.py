@@ -10,7 +10,7 @@ stop_id_3 = 'HSL:1472114'
 stop_id_4 = 'HSL:1472148'
 app = Flask(__name__)
 queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
-
+degree_sign = u"\N{DEGREE SIGN}"
 @app.route("/")
 def bustimes():
     from sorting import data_wrap, refresh_data, bus_Number, bus_Name, bus_Time_Left
@@ -24,8 +24,11 @@ def bustimes():
     bustimes2()
     #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
     timeNow = time.strftime('%H:%M', time.localtime(time.time()))
-    weatherNow = weatherQuery.queryWeatherApi() 
-    return render_template('main.html', weathern = weatherNow, timen = timeNow, busK1 = bus_Number(0), busR1 = bus_Name(0), busT1 = bus_Time_Left(0),
+    weatherQuery.queryWeatherApi()
+    weatherQuery.weatherFromDB()
+    from weatherQuery import tempInInt 
+    weatherNow = str(tempInInt) + " C" + degree_sign
+    try : return render_template('main.html', weathern = weatherNow, timen = timeNow, busK1 = bus_Number(0), busR1 = bus_Name(0), busT1 = bus_Time_Left(0),
                                                          busK2 = bus_Number(1), busR2 = bus_Name(1), busT2 = bus_Time_Left(1),
                                                          busK3 = bus_Number(2), busR3 = bus_Name(2), busT3 = bus_Time_Left(2),
                                                          busK4 = bus_Number(3), busR4 = bus_Name(3), busT4 = bus_Time_Left(3),
@@ -45,7 +48,8 @@ def bustimes():
                                                          busK18 = bus_Number_4(2), busR18 = bus_Name_4(2), busT18 = bus_Time_Left_4(2),
                                                          busK19 = bus_Number_4(3), busR19 = bus_Name_4(3), busT19 = bus_Time_Left_4(3),
                                                          busK20 = bus_Number_4(4), busR20 = bus_Name_4(4), busT20 = bus_Time_Left_4(4))
-                                                         
+    except: print("Error!")
+    return render_template('main.html')                                                      
 def bustimes2():
     #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
     return queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
