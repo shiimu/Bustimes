@@ -27,7 +27,7 @@ def bustimes():
     weatherQuery.queryWeatherApi()
     weatherQuery.weatherFromDB()
     from weatherQuery import tempInInt 
-    weatherNow = str(tempInInt) + " C" + degree_sign
+    weatherNow = str(tempInInt) + "C" + degree_sign
     try : return render_template('main.html', weathern = weatherNow, timen = timeNow, busK1 = bus_Number(0), busR1 = bus_Name(0), busT1 = bus_Time_Left(0),
                                                          busK2 = bus_Number(1), busR2 = bus_Name(1), busT2 = bus_Time_Left(1),
                                                          busK3 = bus_Number(2), busR3 = bus_Name(2), busT3 = bus_Time_Left(2),

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" http-equiv="refresh" content="60">                
+    <meta charset="UTF-8" http-equiv="refresh" content="30">                
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
     <title>Bus Times</title>
@@ -11,8 +11,31 @@
       grid-template-columns: auto auto;
       padding: 10px;
     }
+    .weather
+    { color: #007fc6;
+      background-color: white;
+      padding: 1px;
+      font-family: Helvetica;
+      font-size: 90px;
+      font-weight: bolder;  
+      float: right;
+      margin-top: 70px;
+      border-radius: 25px;
+      
+    }
+    .timen{
+      color: #007fc6;
+      background-color: white;
+      padding: 1px;
+      font-family: Helvetica;
+      font-size: 90px;
+      font-weight: bolder;  
+      float: right;
+      margin-top: 70px;
+      margin-right: 300px;
+      border-radius: 25px;
+    }
 
-    
     .grid-item {
       padding: 10px;
       font-size: 30px;
@@ -20,9 +43,11 @@
     }
     </style>
 </head>
+<h1></h1>
 <img>
-   <p1>{{ weathern }}</p1>
-   <p2>{{ timen }}</p2>
+   <p1><div class = weather>{{ weathern }}</div>
+    <div class = timen>{{ timen }}</div></p1>
+   <p2></p2>
    <body>
     <div class="grid-container">
       <div class="grid-item">
