@@ -22,7 +22,6 @@ def bustimes():
     refresh_data_3()
     refresh_data_4()
     bustimes2()
-    #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
     timeNow = time.strftime('%H:%M', time.localtime(time.time()))
     weatherQuery.queryWeatherApi()
     weatherQuery.weatherFromDB()
@@ -51,13 +50,7 @@ def bustimes():
     except: print("Error!")
     return render_template('main.html')                                                      
 def bustimes2():
-    #print(refresh_data(),refresh_data_2(),refresh_data_3(),refresh_data_4())
     return queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
 
 if __name__ == "__main__":
-    app.run( debug = True )
-#stop_id = 'HSL:1472113'
-#stop_id_2 = 'HSL:1472128'
-#stop_id_3 = 'HSL:1472114'
-#stop_id_4 = 'HSL:1472148'
-# host = 'localhost:5000,
+    app.run( debug = True ,host='127.0.0.1', port=5000)
