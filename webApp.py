@@ -2,7 +2,7 @@ from flask import Flask, render_template, json, jsonify
 import time
 import requests
 from requests.models import Response
-from callInfo import queryApi, queryApi_2, queryApi_3, queryApi_4
+from ./query/callInfo import queryApi, queryApi_2, queryApi_3, queryApi_4
 import weatherQuery
 stop_id = 'HSL:1472113'
 stop_id_2 = 'HSL:1472128'
@@ -31,7 +31,7 @@ def bustimes():
                                                          busK2 = bus_Number(1), busR2 = bus_Name(1), busT2 = bus_Time_Left(1),
                                                          busK3 = bus_Number(2), busR3 = bus_Name(2), busT3 = bus_Time_Left(2),
                                                          busK4 = bus_Number(3), busR4 = bus_Name(3), busT4 = bus_Time_Left(3),
-                                                         busK5 = bus_Number(4), busR5 = bus_Name(4), busT5 = bus_Time_Left(4),
+                                                         busK5 = bus_Number(4), busR5 = bus_Name(4), busT5 = bus_Time_Left(4),	
                                                          busK6 = bus_Number_2(0), busR6 = bus_Name_2(0), busT6 = bus_Time_Left_2(0),
                                                          busK7 = bus_Number_2(1), busR7 = bus_Name_2(1), busT7 = bus_Time_Left_2(1),
                                                          busK8 = bus_Number_2(2), busR8 = bus_Name_2(2), busT8 = bus_Time_Left_2(2),
@@ -53,4 +53,5 @@ def bustimes2():
     return queryApi_3(stop_id_3), queryApi_4(stop_id_4), queryApi(stop_id),queryApi_2(stop_id_2)
 
 if __name__ == "__main__":
-    app.run( debug = True ,host='127.0.0.1', port=5000)
+    app.run( debug = True )
+
